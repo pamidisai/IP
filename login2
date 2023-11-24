@@ -1,0 +1,40 @@
+<?php include 'login.php';?>
+<!DOCTYPE html>
+<html>
+<head><title>
+</title>
+</head>
+<body>
+<div>
+<form action="" method="post">
+<input type="text" name="name" placeholder="name"><br><br>
+<input type="number" name="age" placeholder="age"><br><br>
+<input type="submit" name="save_btn" value="save"><br><br>
+<button><a href="login2.php">Display</a></button>
+            </form>
+        </div>
+        <?php
+        if (isset($_POST['save_btn'])) {
+            $name=$_POST['name'];
+            $age=$_POST['age'];
+            $query="INSERT INTO details(name,age) VALUES('$name','$age')";
+            $data=mysqli_query($con,$query);
+        }
+if($data){
+         ?>
+         <script type="text/javascript">
+            alert("Data Saved Successfully")
+         </script>
+         <?php
+         }
+         else
+         {
+            ?>
+            <script type="text/javascript">
+            alert("Please try again later")
+         </script>
+         <?php
+         }
+         ?>
+    </body>
+</html>
